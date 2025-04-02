@@ -1,0 +1,135 @@
+:root {
+    --rem: 16rem;
+    --body: transparent;
+    --text-default: #f5f5f7;
+    --text-secondary: #86868b;
+    --switch-width: 60px;
+    --switch-height: 30px;
+    --switch-indicator: 20px;
+    --orange-glow: #ff5500;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: transparent;
+    pointer-events: all;
+}
+
+.container {
+    position: fixed;
+    left: 20px;
+    top: 60%;
+    transform: translateY(-50%);
+    background: transparent;
+    padding: 10px;
+    text-align: center;
+    pointer-events: auto;
+    user-select: none;
+}
+
+.record-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #1a1a1a;
+    padding: 4px 12px 12px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    position: relative;
+    width: fit-content;
+    gap: 3px;
+    border: 2px solid var(--orange-glow);
+    touch-action: none;
+}
+
+.rec-label {
+    color: #fff;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+    padding-top: 1px;
+}
+
+.toggle-container {
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.toggle {
+    position: relative;
+    width: var(--switch-width);
+    height: var(--switch-height);
+    background: transparent;
+    margin: 0 auto;
+    transform: translateX(-2px);
+}
+
+.toggle input {
+    -webkit-appearance: none;
+    outline: none;
+    position: absolute;
+    height: var(--switch-height);
+    width: var(--switch-width);
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    background: #1a1a1a;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.8),
+                inset 0 -1px 2px rgba(255, 255, 255, 0.1);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.toggle input::before {
+    content: "";
+    height: var(--switch-indicator);
+    width: var(--switch-indicator);
+    background: linear-gradient(145deg, #404040, #333);
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 5px;
+    bottom: 0;
+    border-radius: 50%;
+    transition: 0.2s ease-in-out;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.3),
+                inset 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.toggle input::after {
+    content: "OFF";
+    position: absolute;
+    font-size: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 8px;
+    color: #666;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 500;
+}
+
+.toggle input:checked {
+    background: #1a1a1a;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.8),
+                inset 0 -1px 2px rgba(255, 255, 255, 0.1);
+}
+
+.toggle input:checked::before {
+    left: calc(100% - var(--switch-indicator) - 5px);
+    background: linear-gradient(145deg, var(--orange-glow), #ff4400);
+    box-shadow: 0 0 15px var(--orange-glow),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.3),
+                inset 0 2px 4px rgba(255, 255, 255, 0.3);
+}
+
+.toggle input:checked::after {
+    content: "ON";
+    left: 8px;
+    right: auto;
+    color: var(--orange-glow);
+}

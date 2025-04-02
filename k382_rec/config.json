@@ -1,0 +1,7 @@
+{
+    "title": "Rockstar Editor UI",
+    "buttons": [
+        { "id": "startRec", "label": "Rec" },
+        { "id": "stopRec", "label": "Stop" }
+    ]
+}
